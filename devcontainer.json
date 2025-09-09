@@ -1,0 +1,12 @@
+{
+  "name": "Node.js & MongoDB",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:18", // O la imagen base que uses
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {},
+    "ghcr.io/devcontainers/features/mongodb-free:1": {
+      "version": "latest"
+    }
+  },
+  "forwardPorts": [27017], // Puerto por defecto de MongoDB
+  "postCreateCommand": "npm install" // O cualquier otro comando que necesites
+}
