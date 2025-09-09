@@ -4,8 +4,11 @@ var mongoose = require('mongoose');
 var app = require('./app');
 var port = process.env.PORT || 3977;
 
-mongoose.connect('mongodb://localhost:27017/curso_node_angular')
-//mongoose.connect('mongodb://host.docker.internal:27017/curso_node_angular')
+// Usar la variable de entorno MONGO_URI
+var mongoUri = process.env.MONGO_URI || 'mongodb://localhost:27017/curso_node_angular';
+console.log(mongoUri);
+
+mongoose.connect(mongoUri)
     .then(() => {
         // Si la conexión es exitosa, se ejecuta este bloque
         console.log('La conexión a la base de datos está funcionando correctamente...');
