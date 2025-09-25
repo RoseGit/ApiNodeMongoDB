@@ -12,6 +12,11 @@ mongoose.connect(mongoUri)
     .then(() => {
         // Si la conexión es exitosa, se ejecuta este bloque
         console.log('La conexión a la base de datos está funcionando correctamente...');
+        if (process.env.CODESPACE_NAME) {
+            console.log(`🔗 Forwarded URL: https://${process.env.CODESPACE_NAME}-${port}.githubpreview.dev`);
+        }
+
+
 
         // Inicia tu servidor Express solo DESPUÉS de una conexión exitosa a la DB
         app.listen(port, function() {
