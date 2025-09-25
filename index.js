@@ -1,10 +1,11 @@
+/*for run the app npm start*/
 'use strict'
 
 var mongoose = require('mongoose');
 var app = require('./app');
 var port = process.env.PORT || 3977;
 
-// Usar la variable de entorno MONGO_URI
+// Usar la variable de entorno MONGO_URI export MONGO_URI="mongodb+srv://..."
 var mongoUri = process.env.MONGO_URI || 'mongodb://localhost:27017/curso_node_angular';
 console.log(mongoUri);
 
