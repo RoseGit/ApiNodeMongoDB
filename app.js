@@ -19,7 +19,14 @@ app.use((req, res, next)=>{
     res.header('Access-Control-Allow-Headers','Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Allow-Request-Method');
     res.header('Access-Control-Allow-Methods','GET, POST, OPTIONS, PUT, DELETE');
     res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
-    next();
+    
+    // 👇 AÑADE ESTE BLOQUE 
+    // Maneja la solicitud OPTIONS y detiene el flujo
+    if (req.method === 'OPTIONS') {
+        res.status(200).send();
+    } else {
+        next();
+    }
 });
 
 //configurar ruta base 
