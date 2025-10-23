@@ -119,10 +119,13 @@ function uploadImage(req, res){
 
     if(req.files){
         var file_path = req.files.image.path;
-        var file_split = file_path.split('\\');
+        console.log('file_path'+ file_path);
+        var file_split = file_path.split('/');
+        console.log('file_split'+file_split);
         var file_name = file_split[2];
+        console.log('file_name'+file_name);
 
-        var ext_split = file_name.split('\.');
+        var ext_split = file_name.split('\.');        
         var file_ext = ext_split[1];
         console.log(file_ext);
         if(file_ext == 'png' || file_ext == 'jpg' || file_ext == 'gif' || file_ext == 'JPG'){
